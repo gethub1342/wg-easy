@@ -23,6 +23,9 @@ You have found the easiest way to install & manage WireGuard on any Linux host!
 * Statistics for which clients are connected.
 * Tx/Rx charts for each connected client.
 * Gravatar support.
+* Forward traffic through a vpn server (gluetun support).
+* Configurable port wireguard server.
+* Client isolation by default (clients can't see each other), used only with default WG_POST_UP and WG_POST_DOWN.
 
 ## Requirements
 
@@ -83,7 +86,9 @@ These options can be configured by setting environment variables using `-e KEY="
 | - | - | - | - |
 | `PASSWORD` | - | `foobar123` | When set, requires a password when logging in to the Web UI. |
 | `WG_HOST` | - | `vpn.myserver.com` | The public hostname of your VPN server. |
-| `WG_PORT` | `51820` | `12345` | The public UDP port of your VPN server. WireGuard will always listen on `51820` inside the Docker container. |
+| `WG_PORT` | `51820` | `12345` | Public and internal port of your vpn server, both ports will be the same, it should be forwarded using docker |
+| `WG_INTERFACE` | `wg0` | `wg1` | The name of the WireGuard interface. Keep it default if you don't know what are you doing |
+| `INTERNET_INTERFACE` | `eth0` | `tun0` | The name of the interface for the internet access, usually eth0 but if you use gluetun it will probably be tun0 |
 | `WG_MTU` | `null` | `1420` | The MTU the clients will use. Server uses default WG MTU. |
 | `WG_PERSISTENT_KEEPALIVE` | `0` | `25` | Value in seconds to keep the "connection" open. If this value is 0, then connections won't be kept alive. |
 | `WG_DEFAULT_ADDRESS` | `10.8.0.x` | `10.6.0.x` | Clients IP address range. |
