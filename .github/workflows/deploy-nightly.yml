@@ -10,7 +10,7 @@ jobs:
     name: Build & Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         ref: production
 
@@ -35,4 +35,4 @@ jobs:
       with:
         push: true
         platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8
-        tags: weejewel/wg-easy:nightly, weejewel/wg-easy:${{ env.RELEASE }}-nightly
+        tags: frozenalex/wg-easy:nightly, frozenalex/wg-easy:${{ env.RELEASE }}-nightly
