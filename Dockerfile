@@ -9,7 +9,7 @@
 # #
 # #
 
-FROM docker.io/library/node:14-alpine@sha256:dc92f36e7cd917816fa2df041d4e9081453366381a00f40398d99e9392e78664 AS build_node_modules
+FROM docker.io/library/node:18.16.0-alpine3.17@sha256:44aaf1ccc80eaed6572a0f2ef7d6b5a2982d54481e4255480041ac92221e2f11 AS build_node_modules
 
 # Copy Web UI
 COPY src/ /app/
@@ -18,7 +18,7 @@ RUN npm ci --production
 
 # Copy build result to a new image.
 # This saves a lot of disk space.
-FROM docker.io/library/node:14-alpine@sha256:dc92f36e7cd917816fa2df041d4e9081453366381a00f40398d99e9392e78664
+FROM docker.io/library/node:18.16.0-alpine3.17@sha256:44aaf1ccc80eaed6572a0f2ef7d6b5a2982d54481e4255480041ac92221e2f11
 COPY --from=build_node_modules /app /app
 
 # Move node_modules one directory up, so during development
@@ -38,7 +38,7 @@ RUN apk add -U --no-cache \
   wireguard-tools \
   dumb-init
 
-# Expose Ports
+# Expose Ports (Should prolly be removed)
 EXPOSE 51820/udp
 EXPOSE 51821/tcp
 

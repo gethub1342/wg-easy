@@ -1,0 +1,4 @@
+/config
+/wg*.conf
+/wg*.json
+node_modules/

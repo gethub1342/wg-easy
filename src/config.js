@@ -2,15 +2,16 @@
 
 const { release } = require('./package.json');
 
-let WG_INTERFACE = process.env.WG_INTERFACE || 'wg0';
-let INTERNET_INTERFACE = process.env.INTERNET_INTERFACE || 'eth0';
+const WG_INTERFACE = process.env.WG_INTERFACE || 'wg0';
+const WG_PORT = process.env.WG_PORT || 51820;
+const INTERNET_INTERFACE = process.env.INTERNET_INTERFACE || 'eth0';
 
 module.exports.RELEASE = release;
 module.exports.PORT = process.env.PORT || 51821;
 module.exports.PASSWORD = process.env.PASSWORD;
 module.exports.WG_PATH = process.env.WG_PATH || '/etc/wireguard/';
 module.exports.WG_HOST = process.env.WG_HOST;
-module.exports.WG_PORT = process.env.WG_PORT || 51820;
+module.exports.WG_PORT = WG_PORT;
 module.exports.WG_INTERFACE = WG_INTERFACE;
 module.exports.INTERNET_INTERFACE = INTERNET_INTERFACE;
 module.exports.WG_MTU = process.env.WG_MTU || null;
