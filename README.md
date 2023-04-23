@@ -1,11 +1,10 @@
 # WireGuard Easy
 
-[![Build & Publish Docker Image to Docker Hub](https://github.com/WeeJeWel/wg-easy/actions/workflows/deploy.yml/badge.svg?branch=production)](https://github.com/WeeJeWel/wg-easy/actions/workflows/deploy.yml)
-[![Lint](https://github.com/WeeJeWel/wg-easy/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/WeeJeWel/wg-easy/actions/workflows/lint.yml)
-[![Docker](https://img.shields.io/docker/v/weejewel/wg-easy/latest)](https://hub.docker.com/r/weejewel/wg-easy)
-[![Docker](https://img.shields.io/docker/pulls/weejewel/wg-easy.svg)](https://hub.docker.com/r/weejewel/wg-easy)
-[![Sponsor](https://img.shields.io/github/sponsors/weejewel)](https://github.com/sponsors/WeeJeWel)
-![GitHub Stars](https://img.shields.io/github/stars/weejewel/wg-easy)
+[![Build & Publish Docker Image to Docker Hub](https://github.com/FrozenAlex/wg-easy/actions/workflows/deploy.yml/badge.svg?branch=production)](https://github.com/FrozenAlex/wg-easy/actions/workflows/deploy.yml)
+[![Lint](https://github.com/FrozenAlex/wg-easy/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/WeeJeWel/wg-easy/actions/workflows/lint.yml)
+[![Docker](https://img.shields.io/docker/v/frozenalex/wg-easy/latest)](https://hub.docker.com/r/frozenalex/wg-easy)
+[![Docker](https://img.shields.io/docker/pulls/frozenalex/wg-easy.svg)](https://hub.docker.com/r/frozenalex/wg-easy)
+![GitHub Stars](https://img.shields.io/github/stars/frozenalex/wg-easy)
 
 You have found the easiest way to install & manage WireGuard on any Linux host!
 
@@ -73,10 +72,6 @@ $ docker run -d \
 The Web UI will now be available on `http://0.0.0.0:51821`.
 
 > 💡 Your configuration files will be saved in `~/.wg-easy`
-
-### 3. Sponsor
-
-Are you enjoying this project? [Buy me a beer!](https://github.com/sponsors/WeeJeWel) 🍻
 
 ## Options
 
