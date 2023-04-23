@@ -1,3 +1,4 @@
 /config
 /wg*.conf
 /wg*.json
+package.lock.json

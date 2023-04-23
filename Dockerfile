@@ -14,7 +14,7 @@ FROM docker.io/library/node:18.16.0-alpine3.17@sha256:44aaf1ccc80eaed6572a0f2ef7
 # Copy Web UI
 COPY src/ /app/
 WORKDIR /app
-RUN npm ci --production
+RUN yarn install --immutable
 
 # Copy build result to a new image.
 # This saves a lot of disk space.
@@ -30,8 +30,8 @@ COPY --from=build_node_modules /app /app
 # than what runs inside of docker.
 RUN mv /app/node_modules /node_modules
 
-# Enable this to run `npm run serve`
-RUN npm i -g nodemon
+# Enable this to run `yarn serve`
+RUN yarn global add nodemon -g nodemon
 
 # Install Linux packages
 RUN apk add -U --no-cache \
