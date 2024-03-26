@@ -7,7 +7,7 @@
 ![GitHub Stars](https://img.shields.io/github/stars/frozenalex/wg-easy)
 
 You have found the easiest way to install & manage WireGuard on any Linux host!
-[Gluetun example](https://github.com/FrozenAlex/wg-easy/wiki/Gluetun-config-example)
+[Gluetun example](https://github.com/Gethub1342/wg-easy/wiki/Gluetun-config-example)
 
 <p align="center">
   <img src="./assets/screenshot.png" width="802" />
@@ -26,7 +26,7 @@ You have found the easiest way to install & manage WireGuard on any Linux host!
 * Forward traffic through a vpn server (gluetun support).
 * Configurable port wireguard server.
 * Client isolation by default (clients can't see each other), used only with default WG_POST_UP and WG_POST_DOWN.
-
+* Will be updated with treafik and docker-compose.yaml example rather then docker run  "soon" 
 ## Requirements
 
 * A host with a kernel that supports WireGuard (all modern kernels).
@@ -63,7 +63,7 @@ $ docker run -d \
   --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
   --sysctl="net.ipv4.ip_forward=1" \
   --restart unless-stopped \
-  frozenalex/wg-easy
+  gethub1342/wg-easy
 </pre>
 
 > 💡 Replace `YOUR_SERVER_IP` with your WAN IP, or a Dynamic DNS hostname.
@@ -90,10 +90,15 @@ These options can be configured by setting environment variables using `-e KEY="
 | `WG_DEFAULT_ADDRESS` | `10.8.0.x` | `10.6.0.x` | Clients IP address range. |
 | `WG_DEFAULT_DNS` | `1.1.1.1` | `8.8.8.8, 8.8.4.4` | DNS server clients will use. |
 | `WG_ALLOWED_IPS` | `0.0.0.0/0, ::/0` | `192.168.15.0/24, 10.0.1.0/24` | Allowed IPs clients will use. |
-| `WG_PRE_UP` | `...` | - | See [config.js](https://github.com/WeeJeWel/wg-easy/blob/master/src/config.js#L19) for the default value. |
-| `WG_POST_UP` | `...` | `iptables ...` | See [config.js](https://github.com/WeeJeWel/wg-easy/blob/master/src/config.js#L20) for the default value. |
-| `WG_PRE_DOWN` | `...` | - | See [config.js](https://github.com/WeeJeWel/wg-easy/blob/master/src/config.js#L27) for the default value. |
-| `WG_POST_DOWN` | `...` | `iptables ...` | See [config.js](https://github.com/WeeJeWel/wg-easy/blob/master/src/config.js#L28) for the default value. |
+| `WG_PRE_UP` | `...` | - | See [config.js](https://github.com/wg-easy/wg-easy/blob/master/src/config.js#L19) for the default value. |
+| `WG_POST_UP` | `...` | `iptables ...` | See [config.js](https://github.com/wg-easy/wg-easy/blob/master/src/config.js#L20) for the default value. |
+| `WG_PRE_DOWN` | `...` | - | See [config.js](https://github.com/wg-easy/wg-easy/blob/master/src/config.js#L27) for the default value. |
+| `WG_POST_DOWN` | `...` | `iptables ...` | See [config.js](https://github.com/wg-easy/wg-easy/blob/master/src/config.js#L28) for the default value. |
+
+This branch has differant default Iptable rules then above
+
+Default Post Up adds iptables rules for forwarding and masquerading traffic from the WireGuard interface to the internet.
+Allow incoming traffic on the WireGuard port and  Secures clients from each other by forbidding forwarding traffic from the WireGuard interface to itself
 
 > If you change `WG_PORT`, make sure to also change the exposed port.
 
@@ -104,17 +109,17 @@ To update to the latest version, simply run:
 ```bash
 docker stop wg-easy
 docker rm wg-easy
-docker pull frozenalex/wg-easy
+docker pull gethub1342/wg-easy
 ```
 
 And then run the `docker run -d \ ...` command above again.
 
 ## Common Use Cases
 
-* [Using WireGuard-Easy with Pi-Hole](https://github.com/WeeJeWel/wg-easy/wiki/Using-WireGuard-Easy-with-Pi-Hole)
-* [Using WireGuard-Easy with nginx/SSL](https://github.com/WeeJeWel/wg-easy/wiki/Using-WireGuard-Easy-with-nginx-SSL)
+* [Using WireGuard-Easy with Pi-Hole](https://github.com/wg-eas/wg-easy/wiki/Using-WireGuard-Easy-with-Pi-Hole)
+* [Using WireGuard-Easy with nginx/SSL](https://github.com/wg-easy/wg-easy/wiki/Using-WireGuard-Easy-with-nginx-SSL)
 
 
 ## Credits
 
-* [WeeJeWel](https://github.com/WeeJeWel/wg-easy) for the original project.
+* [WeeJeWel](https://github.com/wg-easy/wg-easy) for the original project.
